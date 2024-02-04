@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:found_adoption_application/custom_widget/dialog_otp.dart';
-import 'package:found_adoption_application/models/current_center.dart';
-import 'package:found_adoption_application/models/current_location.dart';
-import 'package:found_adoption_application/models/current_user.dart';
+import 'package:found_adoption_application/models/hive/current_center.dart';
+import 'package:found_adoption_application/models/hive/current_location.dart';
+import 'package:found_adoption_application/models/hive/current_user.dart';
 
 import 'package:found_adoption_application/screens/pet_center_screens/menu_frame_center.dart';
 import 'package:found_adoption_application/screens/pet_center_screens/register_form.dart';
@@ -59,6 +59,10 @@ Future<void> login(
         var retrievedUser =
             userBox.get('currentUser'); // Lấy thông tin User từ Hive
 
+<<<<<<< HEAD
+       
+=======
+>>>>>>> bcb0cad813aaf21b67665e4b09627fc20cba78d8
         notification("Login user success!", false);
         Navigator.pop(context);
         Navigator.push(
@@ -68,6 +72,7 @@ Future<void> login(
                       userId: retrievedUser.id,
                     )));
       } else if (responseData['data']['role'] == 'CENTER') {
+        print('jekobject');
         var centerBox = await Hive.openBox('centerBox'); // Lấy Hive box đã mở
         var currentCenter = CurrentCenter()
           ..id = responseData['data']['_id']

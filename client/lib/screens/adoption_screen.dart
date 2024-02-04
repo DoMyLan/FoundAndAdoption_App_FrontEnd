@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:found_adoption_application/models/pet.dart';
 import 'package:found_adoption_application/screens/animal_detail_screen.dart';
 import 'package:found_adoption_application/screens/pet_center_screens/menu_frame_center.dart';
+import 'package:found_adoption_application/screens/pet_center_screens/profile_center.dart';
 import 'package:found_adoption_application/screens/user_screens/menu_frame_user.dart';
 import 'package:found_adoption_application/services/center/petApi.dart';
 import 'package:found_adoption_application/utils/getCurrentClient.dart';
@@ -43,6 +44,8 @@ class _AdoptionScreenState extends State<AdoptionScreen> {
   ];
 
   int _currentIndex = 0;
+
+
 
   @override
   void initState() {
@@ -93,6 +96,7 @@ class _AdoptionScreenState extends State<AdoptionScreen> {
                                 ),
                               ),
                               buildSearchAndAnimalTypes(),
+                            //  SearchAndAnimalTypesWidget(),
                             ],
                           ),
                         ]),
@@ -503,6 +507,7 @@ class _AdoptionScreenState extends State<AdoptionScreen> {
                                       ? AgePet.convertAge(animal.birthday!)
                                       : "unknown"),
                               const SizedBox(height: 4),
+                              if(currentClient.role == 'USER')
                               Row(
                                 children: [
                                   Icon(
